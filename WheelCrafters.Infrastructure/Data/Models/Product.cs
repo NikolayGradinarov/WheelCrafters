@@ -1,35 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using WheelCrafters.Infrastructure.Data.Enums;
+using static WheelCrafters.Infrastructure.Constants.ValidationConstants.Product;
 
 namespace WheelCrafters.Infrastructure.Data.Models
 {
+    [Comment("Rims")]
     public class Product
     {
+        [Key]
+        [Comment("Product Identifier")]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [Required]
+        [StringLength(NameMaxLength)]
+        [Comment("Product Name")]
+        public string Name { get; set; } = string.Empty;
 
-        public string Description { get; set; }
+        [Required]
+        [Comment("Product Description")]
+        [StringLength(DescriptionMaxLength)]
+        public string Description { get; set; } = string.Empty;
 
-        public int Size { get; set; }    //Enum with size
+        [Required]
+        [EnumDataType(typeof(SizeType))]
+        [Comment("Rims size")]
+        public SizeType Size { get; set; }
 
+        [Required]
+        [Range(typeof(decimal), PriceMinValue, PriceMaxValue)]
+        [Comment("Rims price")]
         public decimal Price { get; set; }
 
+        [Required]
+        [Range(MinQuantity, MaxQuantity)]
+        [Comment("Rims quantity")]
         public int Quantity { get; set; }
 
-        public string ImageUrl { get; set; }
+        [Required]
+        [Comment("Rims Image")]
+        public string ImageUrl { get; set; } = string.Empty;
 
+        [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 
+        public virtual Category Category { get; set; } = null!;
+
+        [Required]
         public bool IsAvailable { get; set; } = true;
 
-        public Category Category { get; set; }
+        public virtual ICollection<ShoppingCartProduct> ShoppingCartProducts { get; set; }
+            = new List<ShoppingCartProduct>();
 
-        public int MyProperty { get; set; }   // TO DO  
-
-        public int MyProperty1 { get; set; }   // TO DO
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+            = new List<OrderProduct>();
     }
 }

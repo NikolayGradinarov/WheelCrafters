@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace WheelCrafters.Infrastructure.Data.Models
 {
     public class PurchaseHistory
     {
+        [Key]
+        [Comment("Purchase History Identifier")]
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        [Required]
+        [Comment("User Identifier")]
+        public Guid UserId { get; set; }
 
-        public int MyProperty { get; set; }  //To DO
+        public ICollection<Order> PurchasedProducts { get; set; }
+            = new List<Order>();
     }
 }
