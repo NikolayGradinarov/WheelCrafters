@@ -29,6 +29,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
         public SizeType Size { get; set; }
 
         [Required]
+        [Column(TypeName ="decimal(18, 2)")]
         [Range(typeof(decimal), PriceMinValue, PriceMaxValue)]
         [Comment("Rims price")]
         public decimal Price { get; set; }

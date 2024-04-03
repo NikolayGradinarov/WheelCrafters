@@ -24,6 +24,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         [Comment("Final Order Price")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal FinalPrice { get; set; }
     }
