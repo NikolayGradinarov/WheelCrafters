@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WheelCrafters.Models;
-using WheelCrafters.Models.Home;
+using WheelCrafters.Core.Models.Home;
 
 namespace WheelCrafters.Controllers
 {
