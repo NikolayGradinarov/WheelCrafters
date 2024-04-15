@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WheelCrafters.Models;
+using WheelCrafters.Models.Home;
 
 namespace WheelCrafters.Controllers
 {
@@ -15,10 +16,10 @@ namespace WheelCrafters.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View();
+            return View(new IndexViewModel());
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
             return View();
         }

@@ -4,8 +4,8 @@
     {
         public static class Category
         {
-            public const int NameMaxLength = 20;
-            //to do minlength
+            public const int NameMaxLength = 50;
+            public const int NameMinLength = 5;
         }
 
         public static class Product
