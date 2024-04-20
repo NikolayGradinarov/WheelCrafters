@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CategoryViewModel>
+   
+@{
+    ViewBag.Title = "Categories";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+
+<div class="container">
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-12 text-center">
+            <h2>Category</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4 text-center">
+            <img src="~/images/AlloyWheels.jpeg" width="400" height="400" class="img-fluid" alt="Photo 1">
+            <p class="mt-2 photo-text">Alloy</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+            <img src="~/images/ForgedWheels.jpg" width="400" height="400" class="img-fluid" alt="Photo 2">
+            <p class="mt-2 photo-text">Forged</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+            <img src="~/images/SteelWheels.jpg" width="400" height="400" class="img-fluid" alt="Photo 3">
+            <p class="mt-2 photo-text">Steel</p>
+        </div>
+    </div>
+</div>
