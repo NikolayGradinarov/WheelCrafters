@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WheelCrafters.Core.Contracts;
+using WheelCrafters.Core.Services;
 using WheelCrafters.Data;
 
 namespace WheelCrafters.Extensions
@@ -8,7 +10,7 @@ namespace WheelCrafters.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            //services.AddTransient<I..., ...> ();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             return services;
         }

@@ -4,7 +4,6 @@ using WheelCrafters.Core.Contracts;
 
 namespace WheelCrafters.Controllers
 {
-    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
@@ -16,8 +15,8 @@ namespace WheelCrafters.Controllers
 
         public async Task <IActionResult> All()
         {
-            var model = await categoryService.GetAllAsync();
-            return View();
+            var model = await categoryService.AllAsync();
+            return View(model);
         }
     }
 }

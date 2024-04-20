@@ -24,4 +24,8 @@
     <ProjectReference Include="..\WheelCrafters.Core\WheelCrafters.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
