@@ -226,17 +226,15 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("Category Identifier");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("Category Name");
 
                     b.HasKey("Id");
@@ -248,12 +246,10 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("Order Identifier");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("FinalPrice")
                         .HasColumnType("decimal(18,2)")
@@ -263,8 +259,8 @@ namespace WheelCrafters.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasComment("Order Date");
 
-                    b.Property<int>("PurchaseHistoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PurchaseHistoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -277,11 +273,11 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.OrderProduct", b =>
                 {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("OrderId", "ProductId");
 
@@ -292,15 +288,13 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("Product Identifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -345,12 +339,10 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.PurchaseHistory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("Purchase History Identifier");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier")
@@ -363,12 +355,10 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.ShoppingCart", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("Shopping Cart Identifier");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -380,11 +370,11 @@ namespace WheelCrafters.Infrastructure.Migrations
 
             modelBuilder.Entity("WheelCrafters.Infrastructure.Data.Models.ShoppingCartProduct", b =>
                 {
-                    b.Property<int>("ShoppingCartId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ShoppingCartId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ShoppingCartId", "ProductId");
 

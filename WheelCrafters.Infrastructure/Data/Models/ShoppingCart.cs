@@ -7,7 +7,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Shopping Cart Identifier")]
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
         public Guid UserId { get; set; }

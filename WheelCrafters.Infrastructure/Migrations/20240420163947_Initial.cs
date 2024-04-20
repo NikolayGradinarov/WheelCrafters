@@ -52,9 +52,8 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Category Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, comment: "Category Name")
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Category Identifier"),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Category Name")
                 },
                 constraints: table =>
                 {
@@ -66,8 +65,7 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "PurchaseHistories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Purchase History Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Purchase History Identifier"),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "User Identifier")
                 },
                 constraints: table =>
@@ -79,8 +77,7 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "ShoppingCarts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Shopping Cart Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Shopping Cart Identifier"),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -198,15 +195,14 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Product Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Product Identifier"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false, comment: "Product Name"),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false, comment: "Product Description"),
                     Size = table.Column<int>(type: "int", nullable: false, comment: "Rims size"),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false, comment: "Rims price"),
                     Quantity = table.Column<int>(type: "int", nullable: false, comment: "Rims quantity"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Rims Image"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -225,9 +221,8 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Order Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PurchaseHistoryId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Order Identifier"),
+                    PurchaseHistoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Order Date"),
                     FinalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false, comment: "Final Order Price")
                 },
@@ -247,8 +242,8 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "ShoppingCartProducts",
                 columns: table => new
                 {
-                    ShoppingCartId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    ShoppingCartId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -271,8 +266,8 @@ namespace WheelCrafters.Infrastructure.Migrations
                 name: "OrderProducts",
                 columns: table => new
                 {
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
