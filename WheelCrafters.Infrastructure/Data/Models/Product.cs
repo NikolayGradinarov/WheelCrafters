@@ -11,7 +11,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Product Identifier")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; } 
 
         [Required]
         [StringLength(NameMaxLength)]
@@ -44,7 +44,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
         public string ImageUrl { get; set; } = string.Empty;
 
         [ForeignKey(nameof(Category))]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; } = null!;
 

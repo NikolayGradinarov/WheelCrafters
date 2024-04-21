@@ -17,16 +17,15 @@ namespace WheelCrafters.Core.Services
 
         public async Task AddCategoryAsync(AddCategoryViewModel model)
         {
-            var entity = new Category()
-            {
-                Id = Guid.NewGuid(),
-                Name = model.Name
-            };
-
             if (context.Categories.Any(ca => ca.Name == model.Name))
             {
                 throw new InvalidOperationException("A category with the same name already exists.");
             }
+
+            var entity = new Category()
+            {
+                Name = model.Name
+            };
 
             await context.Categories.AddAsync(entity);
             await context.SaveChangesAsync();

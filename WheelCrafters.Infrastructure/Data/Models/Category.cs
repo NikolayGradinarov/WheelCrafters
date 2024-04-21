@@ -9,7 +9,7 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Category Identifier")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; } 
 
         [Required]
         [StringLength(NameMaxLength)]

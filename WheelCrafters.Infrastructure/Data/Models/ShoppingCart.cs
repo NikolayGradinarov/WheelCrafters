@@ -7,10 +7,10 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Shopping Cart Identifier")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; } 
 
         [Required]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         public virtual ICollection<ShoppingCartProduct> ShoppingCartProducts { get; set; }
             = new List<ShoppingCartProduct>();

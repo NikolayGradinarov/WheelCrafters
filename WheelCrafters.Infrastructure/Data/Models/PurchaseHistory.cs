@@ -7,11 +7,11 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Purchase History Identifier")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; }
 
         [Required]
         [Comment("User Identifier")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         public ICollection<Order> PurchasedProducts { get; set; }
             = new List<Order>();

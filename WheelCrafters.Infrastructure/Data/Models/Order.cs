@@ -9,10 +9,10 @@ namespace WheelCrafters.Infrastructure.Data.Models
     {
         [Key]
         [Comment("Order Identifier")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; }
 
         [ForeignKey(nameof(PurchaseHistory))]
-        public Guid PurchaseHistoryId { get; set; }
+        public int PurchaseHistoryId { get; set; }
 
         [Required]
         public virtual PurchaseHistory PurchaseHistory { get; set; } = null!;
