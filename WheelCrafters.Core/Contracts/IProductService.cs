@@ -1,15 +1,17 @@
-﻿using WheelCrafters.Core.Models.Category;
+﻿using WheelCrafters.Core.Models.Product;
 
 namespace WheelCrafters.Core.Contracts
 {
     public interface IProductService
     {
-        Task<IEnumerable<CategoryViewModel>> AllAsync();
+        Task<IEnumerable<ProductViewModel>> AllAsync();
 
-        Task AddProductAsync(AddCategoryViewModel model);
+        Task AddProductAsync(AddProductViewModel model);
 
-        Task RemoveProductAsync(DeleteCategoryViewModel model);
+        Task RemoveProductAsync(DeleteProductViewModel model);
 
-        Task EditProductAsync(CategoryViewModel model, string name);
+        Task EditProductAsync(ProductViewModel model, string name);
+
+        Task AddProductToCart(string userId, string name);
     }
 }

@@ -11,10 +11,10 @@
         public static class Product
         {
             public const int NameMaxLength = 100;
-            //to do minlength
+            public const int NameMinLength = 5;
 
             public const int DescriptionMaxLength = 500;
-            //to do minlength
+            public const int DescriptionMinLength = 10;
 
             public const int MaxQuantity = 4;
             public const int MinQuantity = 1;
